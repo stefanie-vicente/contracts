@@ -1,12 +1,13 @@
 import styled from '@emotion/styled';
 
 export const CardsList = styled.div({
-  display: 'grid',
-  gridTemplateColumns: 'repeat(6, 1fr)',
+  display: 'flex',
+  flexWrap: 'wrap'
 });
 
 export const Card = styled.div({
   border: '1px solid',
+  flexBasis: '15%',
 });
 
 export const CardTitle = styled.p({
