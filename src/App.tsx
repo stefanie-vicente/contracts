@@ -1,13 +1,18 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import './App.css';
 import Home from './pages/home/Home';
 import Contracts from './pages/contracts/Contracts';
 import Customers from './pages/customers/Customers';
 
+import styled from '@emotion/styled';
+
+const AppDiv = styled.div({
+  fontFamily: 'Arial, Helvetica, sans-serif',
+});
+
 function App() {
   return (
-    <div className="App">
+    <AppDiv>
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home />} />
@@ -15,7 +20,7 @@ function App() {
           <Route path="/customers" element={<Customers />} />
         </Routes>
       </BrowserRouter>
-    </div>
+    </AppDiv>
   );
 }
 
