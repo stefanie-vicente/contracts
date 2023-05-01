@@ -1,23 +1,23 @@
 import React from 'react';
 
-import { useAppDispatch } from '../../hooks';
-
-import { deleteCustomer } from '../../pages/customers/customerSlice';
-
 import { ICustomer } from '../../interfaces/customer';
 import { IContract } from '../../interfaces/contract';
 
-import { Button, Card, CardTitle, List, ListItem } from '../styledComponents'
+import { Button, Card, CardTitle, List, ListItem } from '../styledComponents';
 
-const Customer = (props: ICustomer) => {
-  const dispatch = useAppDispatch();
+export interface ICustomerProps {
+  customer: ICustomer;
+  deleteCustomer: (id: number) => void;
+}
 
+const Customer = (props: ICustomerProps) => {
+  const { customer, deleteCustomer } = props;
   return (
     <Card>
-      <CardTitle>{props.name}</CardTitle>
-      <Button onClick={() => dispatch(deleteCustomer(props.id))}>Delete</Button>
+      <CardTitle>{customer.name}</CardTitle>
+      <Button onClick={() => deleteCustomer(customer.id)}>Delete</Button>
       <List>
-        {props.contracts?.map((c: IContract, i: number) => (
+        {customer.contracts?.map((c: IContract, i: number) => (
           <ListItem key={i}>{c.name}</ListItem>
         ))}
       </List>
