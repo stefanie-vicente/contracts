@@ -1,13 +1,19 @@
-import { render, screen } from '@testing-library/react';
+import React from 'react';
+import { Provider } from 'react-redux';
 import { MemoryRouter } from 'react-router-dom';
+import { store } from '../../store';
+
+import { render, screen } from '@testing-library/react';
 
 import Contracts from './Contracts';
 
 test('renders contracts page', () => {
   render(
-    <MemoryRouter>
-      <Contracts />
-    </MemoryRouter>
+    <Provider store={store}>
+      <MemoryRouter>
+        <Contracts />
+      </MemoryRouter>
+    </Provider>
   );
 
   expect(
