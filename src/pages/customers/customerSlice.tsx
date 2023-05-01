@@ -1,6 +1,8 @@
 import customer from '../../data/customer.json';
 
 import { createSlice } from '@reduxjs/toolkit';
+import type { PayloadAction } from '@reduxjs/toolkit';
+
 import { RootState } from '../../store';
 
 import { ICustomer } from '../../interfaces/customer';
@@ -11,7 +13,7 @@ export interface CustomerState {
 }
 
 const initialState: CustomerState = {
-  items: customer,
+  items: customer as ICustomer[],
   status: 'idle',
 };
 
@@ -19,11 +21,13 @@ export const customerSlice = createSlice({
   name: 'customer',
   initialState,
   reducers: {
-    deleteAll: (state) => {
-      state.items = [];
+    deleteCustomer: (state, action: PayloadAction<number>) => {
+      state.items = state.items.filter((i) => i.id !== action.payload);
     },
   },
 });
+
+export const { deleteCustomer } = customerSlice.actions;
 
 export const selectCustomers = (state: RootState) => state.customer.items;
 
