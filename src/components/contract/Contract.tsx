@@ -1,7 +1,16 @@
-import { IContract } from "../../interfaces/contract"
+import React from 'react'
+
+import { IContract } from '../../interfaces/contract';
+
+import { Card, CardTitle } from '../styledComponents';
 
 const Contract = (props: IContract) => {
-    return <>{props.name}</>
-}
+  return (
+    <Card>
+      <CardTitle>{props.name}</CardTitle>
+      <p>{props.content}</p>
+    </Card>
+  );
+};
 
-export default Contract
+export default Contract;
