@@ -2,16 +2,17 @@ import styled from '@emotion/styled';
 
 export const CardsList = styled.div({
   display: 'flex',
-  flexWrap: 'wrap'
+  flexWrap: 'wrap',
 });
 
 export const Card = styled.div({
   border: '1px solid',
   flexBasis: '15%',
+  minWidth: '100px',
 });
 
 export const CardTitle = styled.p({
-  fontWeight: 'bold'
+  fontWeight: 'bold',
 });
 
 export const List = styled.ul({
@@ -21,7 +22,7 @@ export const List = styled.ul({
 });
 
 export const ListItem = styled.li({
-  margin: '10px 0'
+  margin: '10px 0',
 });
 
-export const Button = styled.button({})
+export const Button = styled.button({});

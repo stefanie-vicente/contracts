@@ -7,17 +7,21 @@ const HomeDiv = styled.div({
   top: '50%',
   left: '50%',
   transform: 'translate(-50%, -50%)',
-  textAlign: 'center'
-})
+  textAlign: 'center',
+});
+
+const LinksDiv = styled.div({
+  display: 'flex',
+  justifyContent: 'space-evenly',
+});
 
 const Home = () => (
   <HomeDiv>
     <h1>The Contract Automation Plataform</h1>
-    <span>
+    <LinksDiv>
       <Link to="/contracts">Contracts</Link>
-      {' '}
       <Link to="/customers">Customers</Link>
-    </span>
+    </LinksDiv>
   </HomeDiv>
 );
 
